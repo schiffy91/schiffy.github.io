@@ -11,10 +11,12 @@
 			"**/.hg": true,
 			"**/CVS": true,
 			"**/.DS_Store": true,
+			".gitignore": true,
 			".vscode": true,
 			"docs": true,
 			"schiffy.code-workspace": true,
 			"package-lock.json": true,
+			"CNAME": true,
 		}
 	}
 }
