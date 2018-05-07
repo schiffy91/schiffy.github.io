@@ -1,16 +1,12 @@
-@column-size: 256px;
-@padding-left: ((100%-@max-width)/2);
-@padding-right: ((100%-@max-width)/2);
-@padding-top: 16px;
-@padding-bottom: 16px;
-@max-width: 80%;
-@max-height: 80%;
+@column-size: 420px;
+
+body {
+    background-color: whitesmoke ;
+}
 
 h1 {
     font-family: "Bungee Shade", cursive;
     font-size: 40px;
-    padding-left: @padding-left;
-    padding-right: @padding-right;
 }
 
 .modal {
@@ -22,29 +18,26 @@ h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.9);
 }
 
 .frame {
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 90%;
+    max-height: 90%;
     display: block;
     margin: auto auto;
 }
 
-.gallery {
-    padding-left: @padding-left;
-    padding-right: @padding-right;
+.grid {
     column-width: @column-size;
     column-gap: 8px;
-    max-width: @max-width;
     margin: auto;
 }
 
 .thumbnail {
     min-width: @column-size;
     width: 100%;
-    border-radius: 2px;
+    border-radius: 2%;
     cursor: pointer;
     &:hover {
         filter: brightness(50%);
@@ -56,5 +49,4 @@ h1 {
     display: block;
     padding-top: 16pt;
     padding-bottom: 16pt;
-    padding-right: @padding-right;
 }

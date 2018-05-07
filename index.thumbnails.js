@@ -2,7 +2,7 @@ exports.main = function() {
 	let fs = require('fs');
 
 	var html = [];
-	html.push("<div class=\"gallery\">");
+	html.push("<div class=\"grid\">");
 	fs.readdirSync("img/low-res/").forEach(file => {
 		let src = `img/thumbnail/${file.toString()}`;
 		let lazy = `img/low-res/${file.toString()}`;
