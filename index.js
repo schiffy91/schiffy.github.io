@@ -22,8 +22,12 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
         blueprint = blueprint.slice(0, start - 1) + blueprint.slice(start)
         continue;
     }
-    // Replace template
+    // Check if a file path
     let template = blueprint.substring(start + 1, end);
+    if (!fs.existsSync(template)) {
+        continue;
+    }
+    // Replace template
     try {
         let js = require("./" + template);
         blueprint = blueprint.substring(0, start) + js.main() + blueprint.substring(end + 1);
