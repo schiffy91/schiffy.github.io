@@ -20,8 +20,18 @@
 	<!-- JS
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script src="js/lazy.js"></script>
-	<script src="js/thumbnail.js"></script>
+	<script src="js/lightbox.js"></script>
 	<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118264170-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag("js", new Date());
+		gtag("config", "UA-118264170-1");
+	</script>
+
 
 	<!-- Favicon
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -31,5 +41,9 @@
 	<h1>Schiffy</h1>
 	[index.thumbnails.js]
 	<img class="signature" src="img/signature.png"/>
-	<div class="modal"><img class="frame"/></div>
+	<div class="modal">
+		<a href="#">Left button</a>
+		<img class="lightbox"/>
+		<a href="#">Right button</a>
+	</div>
 </body>

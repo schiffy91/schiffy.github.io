@@ -6,8 +6,8 @@ exports.main = function() {
 	fs.readdirSync("img/low-res/").forEach(file => {
 		let src = `img/thumbnail/${file.toString()}`;
 		let lazy = `img/low-res/${file.toString()}`;
-		let frame = `img/medium-res/${file.toString()}`;
-		let img = `\t\t<img class="lazy thumbnail" src="${src}" lazy-src="${lazy}" frame-src="${frame}"/>`;
+		let lightbox = `img/medium-res/${file.toString()}`;
+		let img = `\t\t<img class="lazy thumbnail" src="${src}" lazy-src="${lazy}" lightbox-src="${lightbox}"/>`;
 		html.push(img);
 	})
 	html.push("\t</div>")

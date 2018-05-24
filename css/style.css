@@ -16,7 +16,7 @@ h1 {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
 }
-.frame {
+.lightbox {
   max-width: 90%;
   max-height: 90%;
   display: block;
