@@ -41,7 +41,7 @@ h1 img {
   column-gap: 8px;
   margin: auto;
 }
-@media screen and (max-width: 640px) {
+@media (max-width: 767px) {
   .arrow {
     display: none;
   }
