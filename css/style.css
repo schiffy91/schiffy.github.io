@@ -31,10 +31,9 @@ h1 img {
   background-color: rgba(0, 0, 0, 0.9);
 }
 .lightbox img {
-  width: auto;
   max-width: 90%;
   max-height: 90%;
-  display: block;
+  object-fit: contain;
   margin: auto auto;
 }
 .grid {
