@@ -1,14 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let image = null;
     let lightbox = document.getElementsByClassName("lightbox")[0];
-    let createLightbox = function(object) {
-        image = object;
-        lightbox.children[0].setAttribute("src", image.getAttribute("lightbox-src"));
+    let leftArrow = lightbox.children[0];
+    let frame = lightbox.children[1];
+    let rightArrow = lightbox.children[2];
+    let div = null;
+    let createLightbox = function(event) {
+        div = event;
+        frame.setAttribute("src", div.getAttribute("lightbox-src"));
         lightbox.style.display = "flex";
+        lightbox.style.flexDirection = "row";
     };
-    let cancelLightbox = function() {
+    let cancelLightbox = function(event) {
+        if (event.target == leftArrow || event.target == rightArrow) {
+            return;
+        }
+        frame.removeAttribute("src");
         lightbox.style.display = "none";
-        image = null;
+        div = null;
     };
     let keyHandler = function(event) {
         const LEFT_KEY = 37, RIGHT_KEY = 39;
@@ -21,16 +29,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
     let move = function(offset) {
-        if (image == null) {
+        if (!frame.hasAttribute("src")) {
             return;
         }
-        let index = thumbnails.indexOf(image);
+        let index = thumbnails.indexOf(div);
         if (index + offset < 0 || index + offset >= thumbnails.length) {
             return;
         }
         createLightbox(thumbnails[index + offset]);
     };
     lightbox.onclick = cancelLightbox;
+    leftArrow.onclick = function(event) { move(-1); event.stopPropagation(); };
+    rightArrow.onclick = function(event) { move(1); event.stopPropagation(); };
     document.onkeydown = keyHandler;
 
     let thumbnails = [].slice.call(document.getElementsByClassName("thumbnail"));

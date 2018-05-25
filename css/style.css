@@ -22,6 +22,7 @@ h1 img {
   z-index: 1;
   display: none;
   justify-content: center;
+  align-items: center;
   position: fixed;
   left: 0;
   top: 0;
@@ -30,6 +31,7 @@ h1 img {
   background-color: rgba(0, 0, 0, 0.9);
 }
 .lightbox img {
+  width: auto;
   max-width: 90%;
   max-height: 90%;
   display: block;
