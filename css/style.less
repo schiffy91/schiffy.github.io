@@ -1,12 +1,23 @@
-@column-size: 420px;
+@column-size: 320px;
+@header-height: 56px;
 
 body {
     background-color: whitesmoke ;
 }
 
 h1 {
+    line-height: @header-height;
+}
+
+h1 span {
     font-family: "Bungee Shade", cursive;
-    font-size: 40px;
+    font-size: @header-height;
+    vertical-align: middle;
+}
+
+h1 img {
+    max-height: @header-height;
+    vertical-align: middle;
 }
 
 .modal {
@@ -42,11 +53,4 @@ h1 {
     &:hover {
         filter: brightness(50%);
     }
-}
-
-.signature {
-    float: right;
-    display: block;
-    padding-top: 16pt;
-    padding-bottom: 16pt;
 }

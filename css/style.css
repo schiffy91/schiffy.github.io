@@ -2,8 +2,16 @@ body {
   background-color: whitesmoke ;
 }
 h1 {
+  line-height: 56px;
+}
+h1 span {
   font-family: "Bungee Shade", cursive;
-  font-size: 40px;
+  font-size: 56px;
+  vertical-align: middle;
+}
+h1 img {
+  max-height: 56px;
+  vertical-align: middle;
 }
 .modal {
   z-index: 1;
@@ -23,22 +31,16 @@ h1 {
   margin: auto auto;
 }
 .grid {
-  column-width: 420px;
+  column-width: 320px;
   column-gap: 8px;
   margin: auto;
 }
 .thumbnail {
-  min-width: 420px;
+  min-width: 320px;
   width: 100%;
   border-radius: 2%;
   cursor: pointer;
 }
 .thumbnail:hover {
   filter: brightness(50%);
-}
-.signature {
-  float: right;
-  display: block;
-  padding-top: 16pt;
-  padding-bottom: 16pt;
 }
