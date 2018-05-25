@@ -1,5 +1,7 @@
 @column-size: 320px;
 @header-height: 40px;
+@large-arrow-width: 128px;
+@small-arrow-width: 32px;
 
 body {
     background-color: whitesmoke;
@@ -36,9 +38,23 @@ h1 {
 }
 
 .frame {
-    max-width: calc(100% - 256px);
+    max-width: calc(100% - @large-arrow-width*2);
     max-height: 90%;
     object-fit: contain;
+}
+
+.arrow {
+    width: @large-arrow-width;
+}
+
+/* Change arrows for mobile */
+@media(max-width: 760px) {
+    .frame {
+        max-width: calc(100% - @small-arrow-width*2);
+    }
+    .arrow {
+        width: @small-arrow-width;
+    }
 }
 
 .grid {

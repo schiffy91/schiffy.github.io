@@ -30,9 +30,21 @@ h1 img {
   align-items: center;
 }
 .frame {
-  max-width: calc(100% - 256px);
+  max-width: calc(100% - 128px*2);
   max-height: 90%;
   object-fit: contain;
+}
+.arrow {
+  width: 128px;
+}
+/* Change arrows for mobile */
+@media (max-width: 760px) {
+  .frame {
+    max-width: calc(100% - 32px*2);
+  }
+  .arrow {
+    width: 32px;
+  }
 }
 .grid {
   column-width: 320px;
