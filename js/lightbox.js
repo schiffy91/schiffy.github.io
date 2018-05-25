@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         lightbox.style.flexDirection = "row";
     };
     let cancelLightbox = function(event) {
-        if (event.target == leftArrow || event.target == rightArrow) {
+        if (event.target == leftArrow || event.target == rightArrow || event.target == frame) {
             return;
         }
         frame.removeAttribute("src");
