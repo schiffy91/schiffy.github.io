@@ -1,17 +1,22 @@
 body {
   background-color: whitesmoke ;
 }
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 h1 {
-  line-height: 56px;
+  line-height: 48px;
 }
 h1 span {
-  font-family: "Bungee Shade", cursive;
-  font-size: 56px;
+  font-family: "Libre Barcode 39 Extended Text", cursive;
+  font-size: 48px;
   vertical-align: middle;
 }
 h1 img {
-  max-height: 56px;
+  max-height: 48px;
   vertical-align: middle;
+  float: right;
 }
 .modal {
   z-index: 1;

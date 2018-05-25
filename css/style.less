@@ -1,8 +1,13 @@
 @column-size: 320px;
-@header-height: 56px;
+@header-height: 48px;
 
 body {
     background-color: whitesmoke ;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 h1 {
@@ -10,7 +15,7 @@ h1 {
 }
 
 h1 span {
-    font-family: "Bungee Shade", cursive;
+    font-family: "Libre Barcode 39 Extended Text", cursive;
     font-size: @header-height;
     vertical-align: middle;
 }
@@ -18,6 +23,7 @@ h1 span {
 h1 img {
     max-height: @header-height;
     vertical-align: middle;
+    float: right;
 }
 
 .modal {
