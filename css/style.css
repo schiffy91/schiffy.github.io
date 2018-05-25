@@ -18,7 +18,7 @@ h1 img {
   vertical-align: middle;
   float: right;
 }
-.modal {
+.lightbox {
   z-index: 1;
   display: none;
   justify-content: center;
@@ -29,7 +29,7 @@ h1 img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
 }
-.lightbox {
+.lightbox img {
   max-width: 90%;
   max-height: 90%;
   display: block;
