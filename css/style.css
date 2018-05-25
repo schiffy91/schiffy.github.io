@@ -38,7 +38,7 @@ h1 img {
   width: 128px;
 }
 /* Change arrows for mobile */
-@media (max-width: 760px) {
+@media (max-width: 1280px) {
   .frame {
     max-width: calc(100% - 32px*2);
   }
