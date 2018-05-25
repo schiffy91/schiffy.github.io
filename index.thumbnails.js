@@ -1,12 +1,13 @@
 exports.main = function() {
 	let fs = require('fs');
+	let basePath = "img/photography";
 
 	var html = [];
 	html.push("<div class=\"grid\">");
-	fs.readdirSync("img/low-res/").forEach(file => {
-		let src = `img/thumbnail/${file.toString()}`;
-		let lazy = `img/low-res/${file.toString()}`;
-		let lightbox = `img/medium-res/${file.toString()}`;
+	fs.readdirSync(`${basePath}/low-res/`).forEach(file => {
+		let src = `${basePath}/thumbnail/${file.toString()}`;
+		let lazy = `${basePath}/low-res/${file.toString()}`;
+		let lightbox = `${basePath}/medium-res/${file.toString()}`;
 		let img = `\t\t<img class="lazy thumbnail" src="${src}" lazy-src="${lazy}" lightbox-src="${lightbox}"/>`;
 		html.push(img);
 	})
