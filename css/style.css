@@ -41,6 +41,11 @@ h1 img {
   column-gap: 8px;
   margin: auto;
 }
+@media screen and (max-width: 640px) {
+  .arrow {
+    display: none;
+  }
+}
 .thumbnail {
   min-width: 320px;
   width: 100%;
