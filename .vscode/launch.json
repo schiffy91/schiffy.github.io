@@ -8,7 +8,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Launch Program",
-			"program": "${workspaceFolder}/template.js/template.js",
+			"program": "${workspaceFolder}/js/template.js/template.js",
 			"args": [
 				"${workspaceFolder}/index.template.html",
 				"${workspaceFolder}/index.html"
