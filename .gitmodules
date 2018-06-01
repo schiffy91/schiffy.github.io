@@ -1,0 +1,3 @@
+[submodule "template.js"]
+	path = template.js
+	url = https://github.com/alexanderschiffhauer/template.js

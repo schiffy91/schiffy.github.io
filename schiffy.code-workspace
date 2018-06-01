@@ -12,6 +12,7 @@
 			"**/CVS": true,
 			"**/.DS_Store": true,
 			".gitignore": true,
+			".gitmodules": true,
 			".vscode": true,
 			"docs": true,
 			"schiffy.code-workspace": true,

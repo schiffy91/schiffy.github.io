@@ -6,7 +6,7 @@
 		{
 			"label": "all",
 			"type": "shell",
-			"command": "open -a \"Google Chrome\" 'file:///Users/alexanderschiffhauer/Google%20Drive/dev/schiffy.io/index.html'",
+			"command": "open index.html",
 			"group": {
 				"kind": "build",
 				"isDefault": true
@@ -19,7 +19,7 @@
 		{
 			"label": "html",
 			"type": "shell",
-			"command": "node index.js index.template.html index.html"
+			"command": "node template.js/template.js index.template.html index.html"
 		},
 		{
 			"label": "css",
