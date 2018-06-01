@@ -29,8 +29,14 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
     }
     // Replace template
     try {
-        let js = require("./" + template);
-        blueprint = blueprint.substring(0, start) + js.main() + blueprint.substring(end + 1);
+        let extension = template.split(".");
+        extension = extension[extension.length - 1];
+        if (extension == "js") {
+            let js = require("./" + template);
+            blueprint = blueprint.substring(0, start) + js.main() + blueprint.substring(end + 1);
+        } else if (extension == "html") {
+            blueprint = blueprint.substring(0, start) + fs.readFileSync(template) + blueprint.substring(end + 1);
+        }
     }
     catch (error) {
         console.warn("unable to load or evaluate " + template + ':\n' + error);
