@@ -1,6 +1,7 @@
-exports.main = function() {
-	let fs = require('fs');
-	let basePath = "img/photography";
+exports.main = function(currentPath) {
+	const fs = require("fs");
+	const path = require("path");
+	const basePath = path.resolve(currentPath + "../../img/photography");
 
 	var html = [];
 	html.push("<div class=\"grid\">");

@@ -8,12 +8,12 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Launch Program",
-			"program": "${workspaceFolder}/js/template.js/template.js",
+			"program": "${workspaceFolder}/build/template.js/template.js",
 			"args": [
-				"${workspaceFolder}/index.template.html",
-				"${workspaceFolder}/index.html"
+				"${workspaceFolder}/build/index.template.html",
+				"${workspaceFolder}/build/index.html"
 			],
-			"preLaunchTask": "css"
+			"preLaunchTask": "build"
 		}
 	]
 }

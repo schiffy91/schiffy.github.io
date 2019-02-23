@@ -4,7 +4,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "all",
+			"label": "run",
 			"type": "shell",
 			"command": "open index.html",
 			"group": {
@@ -12,19 +12,14 @@
 				"isDefault": true
 			},
 			"dependsOn": [
-				"html",
-				"css"
-            ],
+				"build"
+			]
 		},
 		{
-			"label": "html",
+			"label": "build",
 			"type": "shell",
-			"command": "node js/template.js/template.js index.template.html index.html"
-		},
-		{
-			"label": "css",
-			"type": "shell",
-			"command": "lessc css/style.less css/style.css"
+			"command": "cd build && ./build.sh",
+			"group": "build"
 		}
 	]
 }
