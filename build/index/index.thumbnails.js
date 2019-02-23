@@ -1,11 +1,12 @@
 exports.main = function(currentPath) {
 	const fs = require("fs");
 	const path = require("path");
-	const basePath = path.resolve(currentPath + "../../img/photography");
+	const basePath = "img/photography";
+	const fullPath = path.resolve(currentPath + "../../img/photography");
 
 	var html = [];
 	html.push("<div class=\"grid\">");
-	fs.readdirSync(`${basePath}/low-res/`).forEach(file => {
+	fs.readdirSync(`${fullPath}/low-res/`).forEach(file => {
 		let src = `${basePath}/thumbnail/${file.toString()}`;
 		let lazy = `${basePath}/low-res/${file.toString()}`;
 		let lightbox = `${basePath}/medium-res/${file.toString()}`;
