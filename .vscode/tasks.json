@@ -7,10 +7,7 @@
 			"label": "run",
 			"type": "shell",
 			"command": "open index.html",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"dependsOn": [
 				"build"
 			]
@@ -18,8 +15,11 @@
 		{
 			"label": "build",
 			"type": "shell",
-			"command": "cd build && ./build.sh",
-			"group": "build"
+			"command": "make",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }

@@ -8,10 +8,10 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Launch Program",
-			"program": "${workspaceFolder}/build/template.js/template.js",
+			"program": "${workspaceFolder}/build/template.js",
 			"args": [
-				"${workspaceFolder}/build/index.template.html",
-				"${workspaceFolder}/build/index.html"
+				"${workspaceFolder}/build/portfolio.js",
+				"${workspaceFolder}/index.html"
 			],
 			"preLaunchTask": "build"
 		}
