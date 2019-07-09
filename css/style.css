@@ -30,12 +30,12 @@ h1 img {
   align-items: center;
 }
 .frame {
-  max-width: calc(100% - 128px*2);
+  max-width: calc(100% - 64px*2);
   max-height: 90%;
   object-fit: contain;
 }
 .arrow {
-  width: 128px;
+  width: 64px;
 }
 /* Change arrows for mobile */
 @media (max-width: 768px) {

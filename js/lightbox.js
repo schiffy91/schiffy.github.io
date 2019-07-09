@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let frame = lightbox.children[1];
     let rightArrow = lightbox.children[2];
     let div = null;
+    let mod = function(n, m) {
+        return ((n % m) + m) % m;
+    };
+    let preload = function(div) {
+        var image = new Image();
+        image.src = div.getAttribute("lightbox-src");
+    }
     let createLightbox = function(event) {
         div = event;
         frame.setAttribute("src", div.getAttribute("lightbox-src"));
@@ -32,11 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!frame.hasAttribute("src")) {
             return;
         }
-        let index = thumbnails.indexOf(div);
-        if (index + offset < 0 || index + offset >= thumbnails.length) {
-            return;
-        }
-        createLightbox(thumbnails[index + offset]);
+        let index = mod(thumbnails.indexOf(div) + offset, thumbnails.length);
+        let previous = thumbnails[mod(index - 1, thumbnails.length)];
+        let current = thumbnails[index];
+        let next = thumbnails[mod(index + 1, thumbnails.length)];
+        preload(previous)
+        createLightbox(current);
+        preload(next)
     };
     lightbox.onclick = cancelLightbox;
     leftArrow.onclick = function(event) { move(-1); event.stopPropagation(); };

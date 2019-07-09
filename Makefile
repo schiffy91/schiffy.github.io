@@ -6,9 +6,11 @@ all: clean
 	mkdir -p img/photography/low-res
 	node build/resize.js img/photography/medium-res 33% 33 100kb img/photography/thumbnail
 	node build/resize.js img/photography/medium-res 75% 75 300kb img/photography/low-res
+	node node_modules/.bin/lessc css/style.less css/style.css
 	node build/template.js build/portfolio.html index.html
 
 clean:
 	rm -rf img/thumbnail
 	rm -rf img/low-res
 	rm -rf index.html
+	rm -rf css/style.css
