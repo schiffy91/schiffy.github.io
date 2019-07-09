@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let previous = thumbnails[mod(index - 1, thumbnails.length)];
         let current = thumbnails[index];
         let next = thumbnails[mod(index + 1, thumbnails.length)];
-        preload(previous)
         createLightbox(current);
+        preload(previous)
         preload(next)
     };
     lightbox.onclick = cancelLightbox;
