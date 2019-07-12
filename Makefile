@@ -8,6 +8,7 @@ all: clean
 	node build/resize.js img/photography/medium-res 75% 75 300kb img/photography/low-res
 	node node_modules/.bin/lessc css/style.less css/style.css
 	node build/template.js build/portfolio.html index.html
+	open index.html
 
 clean:
 	rm -rf img/thumbnail

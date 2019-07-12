@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let current = thumbnails[index];
         let next = thumbnails[mod(index + 1, thumbnails.length)];
         createLightbox(current);
-        preload(previous)
         preload(next)
+        preload(previous)
     };
     lightbox.onclick = cancelLightbox;
     leftArrow.onclick = function(event) { move(-1); event.stopPropagation(); };
