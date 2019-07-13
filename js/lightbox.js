@@ -1,59 +1,50 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let lightbox = document.getElementsByClassName("lightbox")[0];
-    let leftArrow = lightbox.children[0];
-    let frame = lightbox.children[1];
-    let rightArrow = lightbox.children[2];
-    let div = null;
-    let mod = function(n, m) {
-        return ((n % m) + m) % m;
-    };
-    let preload = function(div) {
-        var image = new Image();
-        image.src = div.getAttribute("lightbox-src");
+class Lightbox {
+    constructor() {
+        this.lightbox = document.getElementsByClassName("lightbox")[0];
+        this.lightbox.onclick = (event) => { this.hide(event); };
+        this.leftArrow = this.lightbox.children[0];
+        this.leftArrow.onclick = (event) => { this.move(-1); event.stopPropagation(); };
+        this.frame = this.lightbox.children[1];
+        this.rightArrow = this.lightbox.children[2];
+        this.rightArrow.onclick = (event) => { this.move(1); event.stopPropagation(); };
+        this.target = null;
+        this.image = null;
+        document.onkeydown = (event) => { this.onKeyPressed(event) };
+        this.thumbnails = [].slice.call(document.getElementsByClassName("thumbnail"));
+        this.thumbnails.forEach((thumbnail) => { thumbnail.onclick = (event) => { this.showImage(thumbnail); }; });
+        this.hide(null);
     }
-    let createLightbox = function(event) {
-        div = event;
-        frame.setAttribute("src", div.getAttribute("lightbox-src"));
-        lightbox.style.display = "flex";
-        lightbox.style.flexDirection = "row";
-    };
-    let cancelLightbox = function(event) {
-        if (event.target == leftArrow || event.target == rightArrow || event.target == frame) {
-            return;
-        }
-        frame.removeAttribute("src");
-        lightbox.style.display = "none";
-        div = null;
-    };
-    let keyHandler = function(event) {
-        const LEFT_KEY = 37, RIGHT_KEY = 39;
+    showImage(target) {
+        let onImageLoaded = () => { this.frame.setAttribute("src", this.image.src); };
+        this.target = target;
+        this.frame.setAttribute("src", this.target.getAttribute("src"));
+        if (this.image != null) { this.image.removeEventListener("load", onImageLoaded); }
+        this.image = new Image();
+        this.image.src = this.target.getAttribute("lightbox-src");
+        if (this.image.complete) { onImageLoaded(); }
+        else { this.image.addEventListener("load", onImageLoaded); }
+        this.lightbox.style.display = "flex"; 
+        this.lightbox.style.flexDirection = "row";
+    }
+    hide(event) {
+        if (event != null && (event.target == this.leftArrow || event.target == this.rightArrow || event.target == this.frame)) { return; }
+        this.lightbox.style.display = "none";
+    }
+    onKeyPressed(event) {
+        const LEFT_KEY = 37, RIGHT_KEY = 39, ESC_KEY = 27;
         event = event || window.event;
         let key = event.which || event.keyCode;
-        if (key == LEFT_KEY) {
-            move (-1);
-        } else if (key == RIGHT_KEY) {
-            move(1);
-        }
-    };
-    let move = function(offset) {
-        if (!frame.hasAttribute("src")) {
-            return;
-        }
-        let index = mod(thumbnails.indexOf(div) + offset, thumbnails.length);
-        let previous = thumbnails[mod(index - 1, thumbnails.length)];
-        let current = thumbnails[index];
-        let next = thumbnails[mod(index + 1, thumbnails.length)];
-        createLightbox(current);
-        preload(next)
-        preload(previous)
-    };
-    lightbox.onclick = cancelLightbox;
-    leftArrow.onclick = function(event) { move(-1); event.stopPropagation(); };
-    rightArrow.onclick = function(event) { move(1); event.stopPropagation(); };
-    document.onkeydown = keyHandler;
-
-    let thumbnails = [].slice.call(document.getElementsByClassName("thumbnail"));
-    thumbnails.forEach(function(thumbnail) {
-        thumbnail.onclick = function(event) { createLightbox(thumbnail); };
-    });
-});
+        if (key == LEFT_KEY) { this.move (-1); } 
+        else if (key == RIGHT_KEY) { this.move(1); }
+        else if (key == ESC_KEY) { this.hide(null); }
+    }
+    move(offset) {
+        let mod = function(n, m) { return ((n % m) + m) % m; };
+        let preloadImage = function(target) { new Image().src = target.getAttribute("lightbox-src"); };
+        let index = mod(this.thumbnails.indexOf(this.target) + offset, this.thumbnails.length);
+        this.showImage(this.thumbnails[index]);
+        preloadImage(this.thumbnails[mod(index - 1, this.thumbnails.length)])
+        preloadImage(this.thumbnails[mod(index + 1, this.thumbnails.length)])
+    }
+}
+document.addEventListener("DOMContentLoaded", function() { let lightbox = new Lightbox(); });
