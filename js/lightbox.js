@@ -23,12 +23,11 @@ class Lightbox {
         this.image.src = this.target.getAttribute("lightbox-src");
         if (this.image.complete) { onImageLoaded(); }
         else { this.image.addEventListener("load", onImageLoaded); }
-        this.lightbox.style.display = "flex"; 
-        this.lightbox.style.flexDirection = "row";
+        this.lightbox.style.display = "flex"; this.lightbox.style.flexDirection = "row"; document.body.style.overflow = "hidden";
     }
     hide(event) {
         if (event != null && (event.target == this.leftArrow || event.target == this.rightArrow || event.target == this.frame)) { return; }
-        this.lightbox.style.display = "none";
+        this.lightbox.style.display = "none"; document.body.style.overflow = "initial";
     }
     onKeyPressed(event) {
         const LEFT_KEY = 37, RIGHT_KEY = 39, ESC_KEY = 27;
