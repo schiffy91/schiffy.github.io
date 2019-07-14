@@ -39,8 +39,9 @@ h1 {
 
 .frame {
     max-width: calc(100% - @large-arrow-width*2);
-    max-height: 90%;
+    max-height: 95%;
     object-fit: contain;
+    border-radius: 5px;
 }
 
 .arrow {
@@ -67,6 +68,7 @@ h1 {
     min-width: @column-size;
     width: 100%;
     border-radius: 5px;
+    padding-bottom: 3px;
     cursor: pointer;
     &:hover {
         filter: brightness(50%);
