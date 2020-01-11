@@ -4,22 +4,28 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "run",
+			"label": "open website",
 			"type": "shell",
 			"command": "open index.html",
-			"group": "build",
 			"dependsOn": [
-				"build"
-			]
-		},
-		{
-			"label": "build",
-			"type": "shell",
-			"command": "make",
+				"build html"
+			],
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			}
-		}
+		},
+		{
+			"label": "build html",
+			"type": "shell",
+			"command": "make html",
+			"group": "build"
+		},
+		{
+			"label": "rebuild portfolio",
+			"type": "shell",
+			"command": "make img",
+			"group":"build"
+		},
 	]
 }
