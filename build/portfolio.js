@@ -5,7 +5,7 @@ exports.main = function(currentPath) {
 	const fullPath = path.resolve(currentPath + "../" + basePath);
 
 	var html = [];
-	html.push("<div class=\"grid\">");
+	html.push("<div class=\"grid\" display: none>");
 	fs.readdirSync(`${fullPath}/low-res/`).forEach(file => {
 		let src = `${basePath}/thumbnail/${file.toString()}`;
 		let lazy = `${basePath}/low-res/${file.toString()}`;
