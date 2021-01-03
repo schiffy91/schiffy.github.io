@@ -62,3 +62,6 @@ h1 img {
 .thumbnail:hover {
   filter: brightness(50%);
 }
+.fade {
+  display: none;
+}

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     let lazies = [].slice.call(document.getElementsByClassName("lazy"));
     let observer = new IntersectionObserver(function(entries, _) {
         entries.forEach(function(entry) {
