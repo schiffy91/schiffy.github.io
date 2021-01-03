@@ -4,7 +4,7 @@ all: clean portfolio html
 
 html:
 	node node_modules/.bin/lessc css/style.less css/style.css
-	node build/template.js build/portfolio.html index.html
+	node build/template.js build/index.html index.html
 
 portfolio:
 	python3 build/clean_images.py img/photography/medium-res
