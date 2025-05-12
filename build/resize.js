@@ -14,7 +14,7 @@ let maxSize = args[3];
 let outputPath = args[4];
 
 fs.readdirSync(inputPath).forEach(file => {
-	exec(`convert '${inputPath}/${file}' -resize ${resizePercent} -quality ${quality} -define jpeg:extent=${maxSize} '${outputPath}/${file}'`, (error, stdout, stderr) => {
+	exec(`magick '${inputPath}/${file}' -resize ${resizePercent} -quality ${quality} -define jpeg:extent=${maxSize} '${outputPath}/${file}'`, (error, stdout, stderr) => {
 		if (error) {
 			console.error(error);
 		}

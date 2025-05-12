@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "lessc": "^1.0.2"
+    "less": "^4.3.0"
   }
 }

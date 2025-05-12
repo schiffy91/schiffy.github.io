@@ -20,5 +20,6 @@ clean:
 	rm -rf css/style.css
 
 install:
-	npm install
+	# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	xargs brew install < brew
+	npm install
